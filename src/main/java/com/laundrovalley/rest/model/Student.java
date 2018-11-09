@@ -5,8 +5,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.Table;
-
-import org.hibernate.validator.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
@@ -14,14 +13,14 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @EntityListeners(AuditingEntityListener.class)
 public class Student extends User{
 	
-	@NotBlank
+	@NotNull
 	private String hostel;
 	
 	
 	@Column(name="room_no")
 	private int roomNo;
 	
-	@NotBlank
+	@NotNull
 	private String session;
 	
 	
