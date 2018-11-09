@@ -5,6 +5,10 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/laundrovalley/master
 
 @MappedSuperclass
 public class User {

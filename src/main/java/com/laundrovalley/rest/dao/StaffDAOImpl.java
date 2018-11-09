@@ -26,4 +26,11 @@ public class StaffDAOImpl implements StaffDAO{
 	public Staff save(Staff staff) {
 		return staffRepository.save(staff);
 	}
+<<<<<<< HEAD
+=======
+	
+	public Optional<Staff> findOne(String id) {
+		return staffRepository.findById(id);
+	}
+>>>>>>> refs/remotes/laundrovalley/master
 }

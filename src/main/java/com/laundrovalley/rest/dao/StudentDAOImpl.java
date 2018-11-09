@@ -24,6 +24,13 @@ public class StudentDAOImpl implements StudentDAO{
 
 	@Override
 	public Student save(Student stud) {
-		return studentRepository.save(stud);
+		return null;
 	}
+<<<<<<< HEAD
+=======
+	
+	public Optional<Student> findOne(String id) {
+		return null;
+	}
+>>>>>>> refs/remotes/laundrovalley/master
 }
