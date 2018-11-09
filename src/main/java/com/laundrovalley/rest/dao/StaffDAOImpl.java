@@ -7,7 +7,7 @@ import com.laundrovalley.rest.model.Staff;
 import com.laundrovalley.rest.repository.StaffRepository;
 
 @Service
-public class StaffDAOImpl {
+public class StaffDAOImpl implements StaffDAO{
 
 	@Autowired
 	StaffRepository staffRepository;

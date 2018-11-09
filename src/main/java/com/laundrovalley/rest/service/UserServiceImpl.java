@@ -4,22 +4,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
-
-import com.laundrovalley.rest.dao.StaffDAOImpl;
-import com.laundrovalley.rest.dao.StudentDAOImpl;
+import com.laundrovalley.rest.dao.StaffDAO;
+import com.laundrovalley.rest.dao.StudentDAO;
 import com.laundrovalley.rest.model.BaseResponse;
 import com.laundrovalley.rest.model.GeneratedIdResponse;
 import com.laundrovalley.rest.model.Staff;
 import com.laundrovalley.rest.model.Student;
 
 @Service
-public class UserServiceImpl {
+public class UserServiceImpl implements UserService{
 
 	@Autowired
-	StudentDAOImpl studentDAO;
+	StudentDAO studentDAO;
 	
 	@Autowired
-	StaffDAOImpl staffDAO;
+	StaffDAO staffDAO;
 	
 	public BaseResponse addStudent(Student stud) {
 		stud.setPassHash(stud.getPassword());

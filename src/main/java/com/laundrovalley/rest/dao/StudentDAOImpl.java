@@ -7,7 +7,7 @@ import com.laundrovalley.rest.model.Student;
 import com.laundrovalley.rest.repository.StudentRepository;
 
 @Service
-public class StudentDAOImpl {
+public class StudentDAOImpl implements StudentDAO{
 
 	@Autowired
 	StudentRepository studentRepository;
