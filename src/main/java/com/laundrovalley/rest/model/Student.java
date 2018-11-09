@@ -6,10 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-<<<<<<< HEAD
-=======
 
->>>>>>> refs/remotes/laundrovalley/master
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity

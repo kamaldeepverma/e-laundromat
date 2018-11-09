@@ -26,11 +26,5 @@ public class StudentDAOImpl implements StudentDAO{
 	public Student save(Student stud) {
 		return null;
 	}
-<<<<<<< HEAD
-=======
-	
-	public Optional<Student> findOne(String id) {
-		return null;
-	}
->>>>>>> refs/remotes/laundrovalley/master
+
 }
