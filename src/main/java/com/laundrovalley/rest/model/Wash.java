@@ -15,8 +15,7 @@ public void setWashid(int washid) {
 	this.washid = washid;
 }
 
-private String status;
-private Time scheduledTime;
+
 
 
 }
