@@ -1,5 +1,7 @@
 package com.laundrovalley.rest.dao;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,10 +15,10 @@ public class StudentDAOImpl implements StudentDAO{
 	StudentRepository studentRepository;
 	
 	public Student save(Student stud) {
-		return studentRepository.save(stud);
+		return null;
 	}
 	
-	public Student findOne(String id) {
-		return studentRepository.findOne(id);
+	public Optional<Student> findOne(String id) {
+		return null;
 	}
 }

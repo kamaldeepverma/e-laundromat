@@ -4,8 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.NotBlank;
 
 @MappedSuperclass
 public class User {
@@ -13,13 +13,13 @@ public class User {
 	@Id
 	private String id;
 	
-	@NotBlank
+	@NotNull
 	private String name;
 	
-	@NotBlank
+	@NotNull
 	private String phone;
 	
-	@NotBlank
+	@NotNull
 	private String email;
 	
 	@Transient
