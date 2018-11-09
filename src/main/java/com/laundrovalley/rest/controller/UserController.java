@@ -16,7 +16,7 @@ import com.laundrovalley.rest.model.BaseResponse;
 import com.laundrovalley.rest.model.GeneratedIdResponse;
 import com.laundrovalley.rest.model.Staff;
 import com.laundrovalley.rest.model.Student;
-import com.laundrovalley.rest.service.UserService;
+import com.laundrovalley.rest.service.UserServiceImpl;
 
 @CrossOrigin
 @RestController
@@ -25,7 +25,7 @@ public class UserController {
 	
 	
 	@Autowired
-	UserService userService;
+	UserServiceImpl userService;
 	
 	/* to register a student*/
 	@PostMapping("/student")
