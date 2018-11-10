@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import com.laundrovalley.rest.model.Plan;
@@ -17,9 +18,10 @@ public class PlanDAOImpl implements PlanDAO{
 	
 	@Override
 	public Plan addPlan(Plan plan) {
-		if(planRepo.existsById(plan.getId()))
+		if(!planRepo.existsById(plan.getId())) {
+			System.out.println("in method");
 		return planRepo.save(plan);
-		
+		}
 		return null;
 	}
 

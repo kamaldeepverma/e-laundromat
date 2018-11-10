@@ -19,19 +19,19 @@ import com.laundrovalley.rest.service.PlanService;
 public class PlanController {
 	@Autowired
 	PlanService planServiceObject;
-	@RequestMapping("/getplans")	
+	@RequestMapping(method=RequestMethod.GET, value="/plans")	
 	public ArrayList<Plan> getPlans() {
 		//ArrayList<Plan> plans=new ArrayList<>();
 		return planServiceObject.getPlans();
 		}
 	
-	@RequestMapping("/getplan/{id}")
+	@RequestMapping(method=RequestMethod.GET,value="/plans/{id}")
 	public Optional<Plan> getPlan(@PathVariable int id) {
 		
 		return planServiceObject.getPlan(id);
 		}
 	
-	@RequestMapping(value="/plan", method=RequestMethod.POST)
+	@RequestMapping(value="/plans", method=RequestMethod.POST)
 	public Plan addPlan(@Valid @RequestBody Plan tempPlan){
 		System.out.println(tempPlan);
 		//Plan tempPlan=new Plan(id, amount, type);
