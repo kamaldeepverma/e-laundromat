@@ -24,7 +24,7 @@ public class StudentDAOImpl implements StudentDAO{
 
 	@Override
 	public Student save(Student stud) {
-		return null;
+		return studentRepository.save(stud);
 	}
 
 }

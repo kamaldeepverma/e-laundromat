@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService{
 		stud.setPassHash(stud.getPassword());
 		
 		try {
-		
+		System.out.println("before save");
 			studentDAO.save(stud);
 		
 		}catch(DataIntegrityViolationException ex) {

@@ -1,6 +1,6 @@
 package com.laundrovalley.rest.model;
 
-import java.sql.Time;
+
 
 public class Wash {
 	
