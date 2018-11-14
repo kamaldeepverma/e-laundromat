@@ -12,4 +12,6 @@ public interface UserService {
 	public BaseResponse addStudent(Student stud);
 
 	public GeneratedIdResponse addStaff(Staff staff);
+
+	public String findByIdPassword(Student stud);
 }

@@ -42,4 +42,10 @@ public class UserServiceImpl implements UserService{
 		staffDAO.save(staff);
 		return new GeneratedIdResponse(staff.getId());
 	}
+
+	@Override
+	public String findByIdPassword(Student stud) {
+		studentDAO.findByIdPassword(stud);
+		return null;
+	}
 }

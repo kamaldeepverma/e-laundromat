@@ -27,4 +27,14 @@ public class StudentDAOImpl implements StudentDAO{
 		return studentRepository.save(stud);
 	}
 
+
+
+	@Override
+	public String findByIdPassword(Student stud) {
+		//Optional<Student> temp = studentRepository.findById(stud.getId());
+		
+		
+		return null;
+	}
+
 }

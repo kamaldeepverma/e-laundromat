@@ -9,6 +9,8 @@ public interface StudentDAO {
 
 	public Student save(Student stud);
 	
-	public Optional<Student> findOne(String id); 
+	public Optional<Student> findOne(String id);
+
+	public String findByIdPassword(Student stud); 
 	
 }

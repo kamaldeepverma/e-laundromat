@@ -1,40 +1,45 @@
 package com.laundrovalley.rest.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
-
-import com.laundrovalley.rest.model.BaseResponse;
 import com.laundrovalley.rest.model.GeneratedIdResponse;
 import com.laundrovalley.rest.model.Staff;
 import com.laundrovalley.rest.model.Student;
 import com.laundrovalley.rest.service.UserService;
 
 
-@CrossOrigin
-@RestController
-@RequestMapping("/user")
+@Controller
 public class UserController {
 	
 	
 	@Autowired
 	UserService userService;
 	
+	@RequestMapping("register-student")
+	public String registration(HttpServletRequest request) {
+		request.setAttribute("mode", "MODE_REGISTER");
+		return "index";
+	}
+	
 	/* to register a student*/
-	@PostMapping("/student")
-	public ResponseEntity<BaseResponse> createStudent(@Valid @RequestBody Student stud) {
+	@PostMapping("/do-register-student")
+	public String createStudent(@ModelAttribute Student stud,BindingResult bindingResult,HttpServletRequest request) {
 		
-		BaseResponse baseResponse = userService.addStudent(stud);
+		//BaseResponse baseResponse
 		
-		return new ResponseEntity<BaseResponse>(baseResponse,HttpStatus.OK);
+		userService.addStudent(stud);
+		request.setAttribute("mode", "MODE_HOME");
+		return "index";
 	}
 	
 	/* to register a staff*/
