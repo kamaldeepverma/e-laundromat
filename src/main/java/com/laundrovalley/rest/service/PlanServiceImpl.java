@@ -1,7 +1,6 @@
 package com.laundrovalley.rest.service;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,7 +26,7 @@ public class PlanServiceImpl implements PlanService {
 	}
 
 	@Override
-	public Optional<Plan> getPlan(int id) {
+	public Plan getPlan(int id) {
 		
 		return planDao.getPlan(id);
 	}

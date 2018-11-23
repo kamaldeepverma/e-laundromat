@@ -8,12 +8,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.laundrovalley.rest.model.Student;
 
 @Controller
-//@SessionAttributes("stud")
+@SessionAttributes("stud")
 public class LoginController {
 	
 	
@@ -23,26 +24,35 @@ public class LoginController {
 	   }
 	
 	@PostMapping("doLogin")
-	public String doLogin(HttpSession session,@ModelAttribute Student stud,HttpServletRequest request,Model model) {
+	public ModelAndView doLogin(HttpSession session,@ModelAttribute Student stud,HttpServletRequest request,Model model) {
+		
+		ModelAndView mav = new ModelAndView();
 		
 		if(stud.getId().equals("2018H1120281P")&&stud.getPassword().equals("12345"))
 		{
-			model.addAttribute("stud",stud);
-			session.setAttribute("stud", stud);
+			
+			mav.addObject("stud",stud);
+			mav.addObject("mode", "MODE_HOME");
+			mav.setViewName("home");
+			
 		}
 		else {
-			request.setAttribute("error", "Invalid Username password");
-			request.setAttribute("mode", "MODE_LOGIN");
-			return "index";
+			
+			mav.addObject("error", "Invalid Username password");
+			mav.addObject("mode", "MODE_LOGIN");
+			mav.setViewName("index");
 		}
-		request.setAttribute("mode", "MODE_HOME");
-		return "home";
+		
+		return mav;
 	}
 	
 	@RequestMapping("login")
-	public String login(HttpServletRequest request) {
-		request.setAttribute("mode", "MODE_LOGIN");
-		return "index";
+	public ModelAndView login() {
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("mode", "MODE_LOGIN");
+		mav.setViewName("index");
+		return mav;
 	}
 	
 	@RequestMapping("logout")

@@ -1,7 +1,6 @@
 package com.laundrovalley.rest.dao;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,9 +31,10 @@ public class PlanDAOImpl implements PlanDAO{
 	}
 
 	@Override
-	public Optional<Plan> getPlan(int id) {
+	public Plan getPlan(int id) {
 		
-		return planRepo.findById(id);
+		return planRepo.findById(id)
+				.orElse(null);
 	}
 
 	

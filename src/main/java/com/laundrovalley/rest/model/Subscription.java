@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.ColumnDefault;
+
 @Entity
 @Table(name="subsciption")
 public class Subscription {
@@ -28,6 +30,15 @@ public class Subscription {
 	@Column(name="plan_id")
 	private int planId;
 	
+	@NotNull
+	@Column
+	private int washes;
+	
+	@NotNull
+	@Column
+	@ColumnDefault(value="false")
+	private boolean status;
+	
 	public Subscription() {}
 	public Subscription(int sid, @NotNull int amount, @NotNull Date expiry, @NotNull String studentId,
 			@NotNull int planId) {
@@ -39,6 +50,18 @@ public class Subscription {
 		this.planId = planId;
 	}
 	
+	public int getWashes() {
+		return washes;
+	}
+	public void setWashes(int washes) {
+		this.washes = washes;
+	}
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
 	public int getId() {
 		return id;
 	}
