@@ -1,16 +1,16 @@
 package com.laundrovalley.rest.dao;
 
-import java.util.Optional;
-
 import com.laundrovalley.rest.model.Student;
 
 
 public interface StudentDAO {
 
-	public Student save(Student stud);
+	public Boolean save(Student stud);
 	
-	public Optional<Student> findOne(String id);
+	public Student loginUser(String id,String password);
 
 	public String findByIdPassword(Student stud); 
+	
+	public Student getStudent(String id);
 	
 }

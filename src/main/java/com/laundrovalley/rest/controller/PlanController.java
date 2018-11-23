@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.laundrovalley.rest.model.Plan;
 import com.laundrovalley.rest.model.Student;
@@ -26,14 +27,17 @@ public class PlanController {
 	PlanService planServiceObject;
 	
 	@RequestMapping("plans")	
-	public String getPlans(@SessionAttribute("stud") Student stud,Model model,HttpServletRequest request) {
+	public ModelAndView getPlans(@SessionAttribute("stud") Student stud,Model model,HttpServletRequest request) {
 		
 		
 		ArrayList<Plan> plans = planServiceObject.getPlans();
-		
-		request.setAttribute("plans",plans);
-		request.setAttribute("mode", "MODE_SUBSCRIBE_PLAN");
-		return "home";
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("plans",plans);
+		//request.setAttribute("plans",plans);
+		mav.addObject("mode", "MODE_SUBSCRIBE_PLAN");
+		//request.setAttribute("mode", "MODE_SUBSCRIBE_PLAN");
+		mav.setViewName("home");
+		return mav;
 	
 	}
 	

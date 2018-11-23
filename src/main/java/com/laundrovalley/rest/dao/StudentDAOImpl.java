@@ -1,7 +1,5 @@
 package com.laundrovalley.rest.dao;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,15 +14,25 @@ public class StudentDAOImpl implements StudentDAO{
 	
 	
 	
-	public Optional<Student> findOne(String id) {
-		return studentRepository.findById(id);
-	}
-
+	
 
 
 	@Override
-	public Student save(Student stud) {
-		return studentRepository.save(stud);
+	public Boolean save(Student stud) {
+		System.out.println("IN Save");
+		System.out.println(stud.getId());
+		
+		if(studentRepository.existsById(stud.getId()))
+		{	
+			
+			System.out.println("reached here");
+			return false;
+			
+		}
+			
+			 studentRepository.save(stud);
+			 return true;
+	
 	}
 
 
@@ -37,4 +45,23 @@ public class StudentDAOImpl implements StudentDAO{
 		return null;
 	}
 
+
+
+	@Override
+	public Student loginUser(String id, String password) {
+		return studentRepository.loginUser(id, password);
+		
+	}
+
+
+
+	@Override
+	public Student getStudent(String id) {
+		
+		return studentRepository.findById(id).orElse(null);
+	}
+
+
+
+	
 }

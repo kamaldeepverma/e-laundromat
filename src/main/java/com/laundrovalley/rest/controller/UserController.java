@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import com.laundrovalley.rest.model.GeneratedIdResponse;
 import com.laundrovalley.rest.model.Staff;
 import com.laundrovalley.rest.model.Student;
@@ -20,6 +21,7 @@ import com.laundrovalley.rest.service.UserService;
 
 @Controller
 public class UserController {
+	
 	
 	
 	@Autowired
@@ -36,10 +38,17 @@ public class UserController {
 	public String createStudent(@ModelAttribute Student stud,BindingResult bindingResult,HttpServletRequest request) {
 		
 		//BaseResponse baseResponse
+		System.out.println(stud);
+		System.out.println(stud.getId());
 		
-		userService.addStudent(stud);
-		request.setAttribute("mode", "MODE_HOME");
-		return "index";
+		if(userService.addStudent(stud))
+		{
+			request.setAttribute("mode", "MODE_HOME");
+			return "index";
+				}
+		System.out.println("hi");
+		return "abc";
+
 	}
 	
 	/* to register a staff*/
@@ -50,6 +59,10 @@ public class UserController {
 		
 		return new ResponseEntity<GeneratedIdResponse>(generatedIdResponse,HttpStatus.OK);
 	}
+	
+	
+	
+	
 	
         
 

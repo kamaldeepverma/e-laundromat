@@ -27,6 +27,7 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
+                
                     <a href="home">
                         Laundro-Valley
                     </a>
@@ -41,7 +42,7 @@
                     <a href="#">My Plan</a>
                 </li>
                 <li>
-                    <a href="#">Provide Feedback</a>
+                    <a href="feedback">Provide Feedback</a>
                 </li>
                 <li>
                     <a href="#">About</a>
@@ -54,22 +55,83 @@
                 </li>
             </ul>
         </div>
+        
+        
+        
         <!-- /#sidebar-wrapper -->
-
         <!-- Page Content -->
         <div id="page-content-wrapper">
 			
 			<c:choose>
             	<c:when test="${mode=='MODE_HOME' }">
+            	
 		            <div class="container-fluid">
+		       
 		                <h1>Simple Sidebar</h1>
 		                <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
 		                <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-		               
+		        		       
 		                ${stud.id }
 		                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
 		            </div>
 	         	</c:when>
+	         	
+	         	<c:when test="${mode=='MODE_HOME_FEEDBACK' }">
+            	
+		            <div class="container-fluid">
+		       
+		                <h1>We have Saved your Responses</h1>
+		                <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
+		                <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
+		        		       
+		                ${stud.id }
+		                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+		            </div>
+	         	</c:when>
+	         	<c:when test="${mode=='MODE_STAFF_LOGIN' }">
+            	
+		            <div class="container-fluid">
+		       
+		                
+		                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+		            </div>
+	         	</c:when>
+	         
+	         	
+	         <c:when test="${mode=='MODE_PROVIDE_FEEDBACK' }">
+	         <div class="container-fluid">
+		                <h1>Please Provide your Valuable Feedback</h1>
+		                <form class="form-horizontal" method="POST" action="savefeedback">
+		                <div class="form-group">
+		                <label class="control-label col-md-3">Description</label>
+		                </div>
+		                <div class="col-md-3">
+							<input type="text" class="form-control" name="description" required="Provide your feedback here">
+		                </div>
+		               
+		                <div>
+		               Your Feedback is very Important, it will help us in improving our services.
+		                
+		                
+		                
+		                </div>
+		                <div>
+		                <input type="submit" class="btn btn-primary" value="Submit Feedback">
+		                </div> 
+		                </form>
+		                
+		                
+		                <br>
+		                <br>
+		                <br>
+		                <br>
+		                <br>
+		                <br>
+		               
+		                
+		                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+		            </div>
+		            </c:when>
 	         
             	<c:when test="${mode=='MODE_SUBSCRIBE_PLAN' }">
 		            <div class="container-fluid">
@@ -77,12 +139,7 @@
 		                <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
 		                <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
 		               
-		               
-		                
-							
-		                
-		                
-		                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+		         <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
 		            </div>
 	         	</c:when>
 	         
@@ -102,8 +159,10 @@
 		                <h1>Simple Sidebar</h1>
 		                <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
 		                <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-		               
-		                ${stud.id }
+		               	
+		                <br>
+		                <br>
+		                <br>
 		                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
 		            </div>
 	         	</c:when>

@@ -9,14 +9,19 @@
 <meta http-equiv="Expires" content="sat, 01 Dec 2001 00:00:00 GMT">
 <title>Laundro-Valley | home</title>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<!--  <link rel="stylesheet" href="css/bootstrap.min.css">-->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+
+    <!-- Custom styles for this template -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
 </head>
 
 <body>
 
 <div role="navigation">
-		<div class="navbar navbar-inverse">
+ 		<div class="navbar navbar-inverse"> 
+			<div>
 			<a href="/index" class="navbar-brand">LaundroValley</a>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
@@ -142,14 +147,14 @@
 						<label class="control-label col-md-3">ID</label>
 						<div class="col-md-7">
 							<input type="text" class="form-control" name="id"
-								value="${stud.id }" />
+								value="${user.id }" />
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-3">Password</label>
 						<div class="col-md-7">
 							<input type="password" class="form-control" name="password"
-								value="${stud.password }" />
+								value="${user.password }" />
 						</div>
 					</div>
 					<div class="form-group ">
@@ -160,9 +165,10 @@
 					</c:when>
 </c:choose>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+ <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>	
 </body>
 
 </html>

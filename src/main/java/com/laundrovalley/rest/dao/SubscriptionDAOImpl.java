@@ -1,5 +1,6 @@
 package com.laundrovalley.rest.dao;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,12 @@ public class SubscriptionDAOImpl implements SubscriptionDAO{
 			
 			return subscriptionRepository.findById(id);
 		}
+
+	@Override
+	public ArrayList<Subscription> getSubcriptions() {
+		
+		return (ArrayList<Subscription>) subscriptionRepository.findAll();
+	}
 	}
 
 	

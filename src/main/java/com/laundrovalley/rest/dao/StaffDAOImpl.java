@@ -16,8 +16,8 @@ public class StaffDAOImpl implements StaffDAO{
 	
 	
 	
-	public Optional<Staff> findOne(String id) {
-		return staffRepository.findById(id);
+	public Staff findOne(String id) {
+		return staffRepository.findById(id).orElse(null);
 	}
 
 

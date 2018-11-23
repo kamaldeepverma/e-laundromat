@@ -14,6 +14,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @EntityListeners(AuditingEntityListener.class)
 public class Student extends User{
 	
+	
 	@NotNull
 	private String hostel;
 	
@@ -62,6 +63,11 @@ public class Student extends User{
 
 	public void setHostel(String hostel) {
 		this.hostel = hostel;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [hostel=" + hostel + ", roomNo=" + roomNo + ", session=" + session + ", status=" + status + "]";
 	}
 	
 
