@@ -105,7 +105,7 @@
                         	
                         </ul>
                         <div class="panel-footer">
-                            <a class="btn btn-lg btn-block btn-danger" href="plans/${plan.id}">Details</a>
+                            <a class="btn btn-lg btn-block btn-danger" href="/plans/${plan.id}">Details</a>
                         </div>
                     </div>
                 </div>
