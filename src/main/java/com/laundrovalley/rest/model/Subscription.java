@@ -36,22 +36,17 @@ public class Subscription {
 	@NotNull
 	@ColumnDefault(value="false")
 	private boolean status;
+
 	
-	public int getWashes() {
-		return washes;
-	}
-	public void setWashes(int washes) {
-		this.washes = washes;
-	}
-	public boolean isStatus() {
-		return status;
-	}
-	public void setStatus(boolean status) {
-		this.status = status;
-	}
+	
+	
+
 	public Subscription() {}
-	
-	
+
+
+
+
+
 	public Subscription(int id, @NotNull int amount, @NotNull Date expiry, @NotNull String studentId,
 			@NotNull int planId, @NotNull int washes, @NotNull boolean status) {
 		super();
@@ -63,43 +58,120 @@ public class Subscription {
 		this.washes = washes;
 		this.status = status;
 	}
+
+
+
+
+
 	public int getId() {
 		return id;
 	}
+
+
+
+
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
+
+
+
+
 	public int getAmount() {
 		return amount;
 	}
+
+
+
+
+
 	public void setAmount(int amount) {
 		this.amount = amount;
 	}
+
+
+
+
+
 	public Date getExpiry() {
 		return expiry;
 	}
+
+
+
+
+
 	public void setExpiry(Date expiry) {
 		this.expiry = expiry;
 	}
+
+
+
+
+
 	public String getStudentId() {
 		return studentId;
 	}
+
+
+
+
+
 	public void setStudentId(String studentId) {
 		this.studentId = studentId;
 	}
+
+
+
+
+
 	public int getPlanId() {
 		return planId;
 	}
+
+
+
+
+
 	public void setPlanId(int planId) {
 		this.planId = planId;
 	}
-	@Override
-	public String toString() {
-		return "Subscription [id=" + id + ", amount=" + amount + ", expiry=" + expiry + ", studentId=" + studentId
-				+ ", planId=" + planId + "]";
+
+
+
+
+
+	public int getWashes() {
+		return washes;
 	}
+
+
+
+
+
+	public void setWashes(int washes) {
+		this.washes = washes;
+	}
+
+
+
+
+
+	public boolean isStatus() {
+		return status;
+	}
+
+
+
+
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+	
+	
 	
 	
 }

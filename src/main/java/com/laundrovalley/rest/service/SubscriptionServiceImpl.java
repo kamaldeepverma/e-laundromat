@@ -2,8 +2,10 @@ package com.laundrovalley.rest.service;
 
 
 import java.sql.Date;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Optional;
 import java.util.Properties;
 
@@ -22,8 +24,10 @@ import org.springframework.stereotype.Service;
 
 import com.laundrovalley.rest.dao.StudentDAO;
 import com.laundrovalley.rest.dao.SubscriptionDAO;
+import com.laundrovalley.rest.model.Plan;
 import com.laundrovalley.rest.model.Student;
 import com.laundrovalley.rest.model.Subscription;
+import com.laundrovalley.rest.repository.SubscriptionRepository;
 
 @Service
 @Component
@@ -34,11 +38,37 @@ public class SubscriptionServiceImpl implements SubscriptionService{
 	
 	@Autowired
 	SubscriptionDAO subscriptionDAO;
+	
+	@Autowired
+	UserServiceImpl userService;
+	
+	@Autowired
+	PlanService planService;
+
+	@Autowired
+	SubscriptionRepository subscriptionRepository;
 		
 	@Override
-	public Subscription subscribePlan(Subscription subscription) {
+	public Subscription subscribePlan(String studentId,int planId,int duration) {
 		
-		return subscriptionDAO.subscribePlan(subscription);
+		
+		
+		Plan plan = planService.getPlan(planId);
+		Calendar cal = Calendar.getInstance();
+		Subscription subscription = new Subscription();
+		cal.add(Calendar.MONTH, duration);
+		java.util.Date expiryDate = cal.getTime();
+		java.sql.Date sqlExpiryDate = new java.sql.Date(expiryDate.getTime());
+		subscription.setExpiry(sqlExpiryDate);
+		subscription.setWashes(duration*plan.getWashes());
+		subscription.setPlanId(planId);
+		subscription.setStudentId(studentId);
+		subscription.setStatus(true);
+		subscription.setAmount(duration*plan.getAmount());
+		System.out.println("service:68");
+		subscriptionDAO.subscribePlan(subscription);
+		
+		return subscription;
 	}
 
 	@Override
@@ -46,6 +76,8 @@ public class SubscriptionServiceImpl implements SubscriptionService{
 		
 		return subscriptionDAO.getSubscription(id);
 	}
+	
+	
 	//[Seconds] [Minutes] [Hours] [Day of month] [Month] [Day of week] [Year]
 	@Scheduled(cron="0 58 20 * * ?")
 	@Override
@@ -71,13 +103,7 @@ public class SubscriptionServiceImpl implements SubscriptionService{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				
-				
-				
-				
 			}
-			
-			
 			
 		}
 		
@@ -151,6 +177,16 @@ public class SubscriptionServiceImpl implements SubscriptionService{
 			}
 		return -1;
 	} 
+
+	@Override
+	public boolean getStatus(String id) {
+		
+		Subscription subscription = subscriptionRepository.getSubscription(id);
+		if(subscription!=null)
+			return true;
+		else
+			return false;
+	}
 
 	
 }

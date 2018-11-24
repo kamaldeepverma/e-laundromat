@@ -1,5 +1,6 @@
 package com.laundrovalley.rest.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +19,30 @@ public class Plan {
 	@NotNull
 	private String type;
 	
+	@NotNull
+	@Column
+	private int washes;
+	
+	@NotNull
+	@Column
+	private String description;
+	
+	public int getWashes() {
+		return washes;
+	}
+
+	public void setWashes(int washes) {
+		this.washes = washes;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public Plan(){}
 
 	public int getId() {

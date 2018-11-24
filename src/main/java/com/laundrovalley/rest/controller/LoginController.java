@@ -9,6 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+
+import org.springframework.web.bind.annotation.SessionAttributes;
+
 import org.springframework.web.servlet.ModelAndView;
 
 import com.laundrovalley.rest.model.Staff;
@@ -17,7 +21,7 @@ import com.laundrovalley.rest.model.User;
 import com.laundrovalley.rest.service.UserService;
 
 @Controller
-//@SessionAttributes("stud")
+@SessionAttributes("stud")
 public class LoginController {
 	
 	@Autowired
@@ -31,8 +35,13 @@ public class LoginController {
 	
 	
 	@PostMapping("doLogin")
-	public String doLogin(HttpSession session,@ModelAttribute User user,HttpServletRequest request,ModelAndView model) {
+
+	public String doLogin(HttpSession session,@ModelAttribute User user,HttpServletRequest request,Model model) {
+
+	
 		
+		ModelAndView mav = new ModelAndView();
+		System.out.println(user.getId());
 //		if(stud.getId().equals("2018H1120281P")&&stud.getPassword().equals("12345"))
 //		{
 //			model.addAttribute("stud",stud);
@@ -60,14 +69,15 @@ public class LoginController {
 			return "home";
 			
 		}
-		
+	
+
 		Student stud1=new Student();
 		stud1.setId(user.getId());
 		stud1.setPassword(user.getPassword());
-		System.out.println(user.getEmail());
+		System.out.println(user.getId());
 		Student student=userService.loginUser(stud1);
 		System.out.println(student.getId());
-		
+		System.out.println(student);
 		if(student.getId().isEmpty()) {
 			
 			request.setAttribute("error", "Invalid Username password");
@@ -76,18 +86,26 @@ public class LoginController {
 		}
 		
 		else {
-			model.addObject("stud",stud1);
+			stud1.setId(user.getId());
+			stud1.setPassword(user.getPassword());
+			model.addAttribute("stud",stud1);
 			session.setAttribute("stud", stud1);
 			request.setAttribute("mode", "MODE_HOME");
 		}
 		
 		return "home";
-	}
+
+		}
+
+	
 	
 	@RequestMapping("login")
-	public String login(HttpServletRequest request) {
-		request.setAttribute("mode", "MODE_LOGIN");
-		return "index";
+	public ModelAndView login() {
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("mode", "MODE_LOGIN");
+		mav.setViewName("index");
+		return mav;
 	}
 	
 	@RequestMapping("logout")

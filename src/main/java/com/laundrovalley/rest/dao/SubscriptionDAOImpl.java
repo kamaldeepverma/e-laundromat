@@ -17,7 +17,8 @@ public class SubscriptionDAOImpl implements SubscriptionDAO{
 	
 	@Override
 	public Subscription subscribePlan(Subscription subscription) {
-		
+		System.out.println("dao:20");
+		System.out.println(subscription);
 		return subscriptionRepository.save(subscription);
 	}
 

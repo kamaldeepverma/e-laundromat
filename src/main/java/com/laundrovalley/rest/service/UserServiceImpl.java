@@ -30,6 +30,11 @@ public class UserServiceImpl implements UserService{
 			return studentDAO.save(stud);
 		
 	}
+	
+	public Student getStudent(String studentId) {
+		return studentDAO.findOne(studentId);
+		
+	}
 
 	public GeneratedIdResponse addStaff(Staff staff) {
 		staff.setId("S"+staff.getPhone());
