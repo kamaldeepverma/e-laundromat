@@ -37,30 +37,15 @@ public class LoginController {
 	@PostMapping("doLogin")
 
 	public String doLogin(HttpSession session,@ModelAttribute User user,HttpServletRequest request,Model model) {
-
-	
-		
-		ModelAndView mav = new ModelAndView();
-		System.out.println(user.getId());
-//		if(stud.getId().equals("2018H1120281P")&&stud.getPassword().equals("12345"))
-//		{
-//			model.addAttribute("stud",stud);
-//			session.setAttribute("stud", stud);
-//		}
-//		else {
-//			request.setAttribute("error", "Invalid Username password");
-//			request.setAttribute("mode", "MODE_LOGIN");
-//			return "index";
-//		}
-		
 		
 		if(user.getId().startsWith("S")) {
 			Staff staff=new Staff();
 			staff.setId(user.getId());
 			staff.setPassword(user.getPassword());
+			System.out.println(staff.getId());
 			if(userService.loginStaff(staff)!=null) {
 			
-			request.setAttribute("mode", "MODE_STAFF_LOGIN");
+			request.setAttribute("mode", "MODE_STAFF_HOME");
 			return "home-staff";
 			}
 			

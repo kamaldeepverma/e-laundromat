@@ -40,14 +40,13 @@ public class UserController {
 		//BaseResponse baseResponse
 		System.out.println(stud);
 		System.out.println(stud.getId());
-		
 		if(userService.addStudent(stud))
 		{
 			request.setAttribute("mode", "MODE_HOME");
 			return "index";
 				}
-		System.out.println("hi");
-		return "abc";
+		System.out.println("Register Unsuccessful");
+		return "index";
 
 	}
 	

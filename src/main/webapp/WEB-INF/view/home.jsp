@@ -34,15 +34,15 @@
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
                 
-                    <a href="home">
+                    <a href="/home">
                         Laundro-Valley
                     </a>
                 </li>
                 <li>
-                    <a href="#">Dashboard</a>
+                    <a href="/loadScheduleWash">Schedule Wash</a>
                 </li>
                 <li>
-                    <a href="plans">Subscribe Plan</a>
+                    <a href="/plans">Subscribe Plan</a>
                 </li>
                 <li>
                     <a href="#">My Plan</a>
@@ -69,7 +69,81 @@
         <div id="page-content-wrapper">
 			
 			<c:choose>
+			
+			<c:when test="${mode=='NOT_SUBSCRIBED' }">
             	
+		            <div class="container-fluid">
+		       
+		                <h1>You Don't Have any plan Subscribed, Please Subscribe a Plan if you
+		                want to experience the goodness of LaundroValley.</h1>
+		                   
+		               
+		                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+		            </div>
+	         	</c:when>
+			
+			
+			
+			<c:when test="${mode=='WASH_SCHEDULED' }">
+            	
+		            <div class="container-fluid">
+		       
+		                <h1>Your Wash has been scheduled Successfully</h1>
+		                <h1>You can Expect the Delivery on or before ${deliverdate}</h1>   
+		               
+		                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+		            </div>
+	         	</c:when>
+			
+			<c:when test="${mode=='NOT_SCHEDULED' }">
+            	
+		            <div class="container-fluid">
+		       
+		                <h1>You already have a Wash pending. Wait for it to complete</h1>
+		                
+		                <h1></h1>   
+		               
+		                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+		            </div>
+	         	</c:when>
+			
+			
+			
+            <c:when test="${mode=='SCHEDULE_WASH' }">
+	         <div class="container-fluid">
+		                <h1>Please Provide your Valuable Feedback</h1>
+		                <form class="form-horizontal" method="POST" action="schedule-wash">
+		                <div class="form-group">
+		                <label class="control-label col-md-3">Description</label>
+		                </div>
+		                <div class="col-md-3">
+							<input type="text" class="form-control" name="quantity" required placeholder="Entery Quantity of Clothes">
+		                </div>
+		               
+		                <div>
+		               
+		                
+		                
+		                
+		                </div>
+		                <div>
+		                <input type="submit" class="btn btn-primary" value="Submit">
+		                </div> 
+		                </form>
+		                
+		                
+		                <br>
+		                <br>
+		                <br>
+		        
+		                <br>
+		                <br>
+		               
+		                
+		                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+		            </div>
+			</c:when>
+	         	
             	
             	<c:when test="${mode=='MODE_HOME' }">
             	

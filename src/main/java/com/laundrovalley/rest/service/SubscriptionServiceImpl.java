@@ -7,15 +7,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Optional;
-import java.util.Properties;
-
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -24,6 +15,8 @@ import org.springframework.stereotype.Service;
 
 import com.laundrovalley.rest.dao.StudentDAO;
 import com.laundrovalley.rest.dao.SubscriptionDAO;
+import com.laundrovalley.rest.model.Notification;
+import com.laundrovalley.rest.model.NotificationFactory;
 import com.laundrovalley.rest.model.Plan;
 import com.laundrovalley.rest.model.Student;
 import com.laundrovalley.rest.model.Subscription;
@@ -47,6 +40,11 @@ public class SubscriptionServiceImpl implements SubscriptionService{
 
 	@Autowired
 	SubscriptionRepository subscriptionRepository;
+	
+	@Autowired
+	EmailService emailService;
+	
+	Subscription subscription = new Subscription();
 		
 	@Override
 	public Subscription subscribePlan(String studentId,int planId,int duration) {
@@ -55,7 +53,7 @@ public class SubscriptionServiceImpl implements SubscriptionService{
 		
 		Plan plan = planService.getPlan(planId);
 		Calendar cal = Calendar.getInstance();
-		Subscription subscription = new Subscription();
+		//Subscription subscription = new Subscription();
 		cal.add(Calendar.MONTH, duration);
 		java.util.Date expiryDate = cal.getTime();
 		java.sql.Date sqlExpiryDate = new java.sql.Date(expiryDate.getTime());
@@ -65,7 +63,6 @@ public class SubscriptionServiceImpl implements SubscriptionService{
 		subscription.setStudentId(studentId);
 		subscription.setStatus(true);
 		subscription.setAmount(duration*plan.getAmount());
-		System.out.println("service:68");
 		subscriptionDAO.subscribePlan(subscription);
 		
 		return subscription;
@@ -80,6 +77,7 @@ public class SubscriptionServiceImpl implements SubscriptionService{
 	
 	//[Seconds] [Minutes] [Hours] [Day of month] [Month] [Day of week] [Year]
 	@Scheduled(cron="0 58 20 * * ?")
+	//@Scheduled(cron="0/20 * * * * ?")
 	@Override
 	public void notifyExpiry() {
 		System.out.println("scheduled Job running");
@@ -89,86 +87,40 @@ public class SubscriptionServiceImpl implements SubscriptionService{
 		ArrayList<Subscription> subscriptions= new ArrayList<>();
 		subscriptions=subscriptionDAO.getSubcriptions();
 		Student student=new Student();
+		Notification notification = NotificationFactory.getNotificationInstance("expiry");
 		
-		System.out.println(subscriptions);
 		for(Subscription subscription : subscriptions) {
 			int daysLeft=getDaysLeft(subscription.getExpiry(), Date.valueOf(today.toString().substring(0, 10)));
 			subscription.getId();
 			student =studentDAO.getStudent(subscription.getStudentId());
-			if(daysLeft >=0 && daysLeft<3 ) {
+			
+			
+			if(daysLeft >=0 && daysLeft<3 ) {	
+				System.out.println("108 " + subscription);
+				notification.constructMessage(student.getEmail(), student.getName(), subscription.getExpiry().toString());
+				emailService.sendEmail(notification);
 				
-				try {
-					sendEmail(student,subscription);
-				} catch (MessagingException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
 			}
 			
 		}
 		
 	}	
 	
-	@Override
-	public void sendEmail(Student student,Subscription subscription) throws MessagingException {
-		String to = student.getEmail();
-		String password= "yashratnaniyash11";
-		      
-		String from = "yashratnani1@gmail.com";
-	    String host = "smtp.gmail.com";  
-		                 
-		final String username = "yashratnani1@gmail.com";
-		      
-			  System.out.println("TLSEmail Start"); 
-		              
-	          Properties properties = System.getProperties();
-              properties.setProperty("mail.smtp.host", host); 
-              properties.put("mail.smtp.port", "465");  
-              properties.put("mail.smtp.starttls.enable", "true");
-              properties.put("mail.smtp.auth", "true");  
-                
-              // SSL Factory 
-              properties.put("mail.smtp.socketFactory.class", 
-                      "javax.net.ssl.SSLSocketFactory");  
-              Session session = Session.getInstance(properties, 
-                  new javax.mail.Authenticator() { 
-                        
-                      protected PasswordAuthentication  
-                              getPasswordAuthentication() { 
-                          return new PasswordAuthentication(username, 
-                                                          password); 
-                      } 
-                  }); 
-        
-      try { 
-          MimeMessage message = new MimeMessage(session);  
-            
-          message.setFrom(new InternetAddress(from)); 
-            
-          message.addRecipient(Message.RecipientType.TO,  
-                                new InternetAddress(to)); 
-          message.setSubject("Expiration Notification"); 
-          message.setText(" Hello ,"+student.getName()+"\n Your subscription is expiring on"+subscription.getExpiry());
-        
-          //Transport trans=session.getTransport("smtp");
-          Transport.send(message); 
-          System.out.println("Yo it has been sent.."); 
-      } 
-      catch (MessagingException mex) { 
-          mex.printStackTrace(); 
-      } 
-      }
 
 	@Override
 	public int getDaysLeft(Date expiry, Date today) {
 		
 		String date1=expiry.toString();
 		String date2=today.toString();
-		int expiryDate=Integer.valueOf(date1.substring(9, 10));
-		int todaysDate=Integer.valueOf(date2.substring(9, 10));
+		System.out.println("date1: " + date1);
+		System.out.println("date2: " + date2);
+		
+		int expiryDate=Integer.valueOf(date1.substring(8, 9));
+		int todaysDate=Integer.valueOf(date2.substring(8, 9));
 		int expiryMonth=Integer.valueOf(date1.substring(5, 6));
 		int currentMonth=Integer.valueOf(date2.substring(5, 6));
 		int expiryYear= Integer.valueOf(expiry.toString().substring(0, 3));
+		
 		
 		int currentYear=Integer.valueOf(today.toString().substring(0, 3));
 		if(expiryYear-currentYear>=0)
@@ -188,5 +140,4 @@ public class SubscriptionServiceImpl implements SubscriptionService{
 			return false;
 	}
 
-	
 }

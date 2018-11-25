@@ -10,4 +10,5 @@ public interface SubscriptionDAO {
 	public Subscription subscribePlan(Subscription subscription);
 	public Optional<Subscription> getSubscription(int id);
 	public ArrayList<Subscription> getSubcriptions();
+	public int decreaseWashCount(String studentId);
 }

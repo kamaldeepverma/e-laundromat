@@ -29,8 +29,7 @@ public class PlanController {
 	SubscriptionService subscriptionService;
 	
 	@RequestMapping("plans")	
-
-	public ModelAndView getPlans(@SessionAttribute("stud") Student stud) {
+	public ModelAndView listPlans(@SessionAttribute("stud") Student stud) {
 	
 		ArrayList<Plan> plans = planServiceObject.getPlans();
 		System.out.println(stud.getId());

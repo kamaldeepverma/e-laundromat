@@ -26,7 +26,6 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public Boolean addStudent(Student stud) {
 		stud.setPassHash(generateHash(stud.getPassword()));
-		
 			return studentDAO.save(stud);
 		
 	}

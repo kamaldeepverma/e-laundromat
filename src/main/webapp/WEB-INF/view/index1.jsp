@@ -107,14 +107,14 @@
 						</div>
 					</div>
 					
-					<div class="form-group">
+					<!-- <div class="form-group">
 						<label class="control-label col-md-3">status </label>
 						<div class="col-md-3">
 							<input type="text" class="form-control" name="status"
 								value="${stud.status }" />
 						</div>
 					
-					</div>
+					</div> -->
 					
 					<div class="form-group">
 						<label class="control-label col-md-3">Password</label>

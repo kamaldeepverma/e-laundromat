@@ -39,7 +39,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/listwashesforstaff">List Washes</a>
+                    <a href="/washes">List Washes</a>
                 </li>
                 <li>
                     <a href="plans">Feedbacks</a>
@@ -63,7 +63,7 @@
 			<c:choose>
             	
             	
-            	<c:when test="${mode=='MODE_STAFF_LOGIN' }">
+            	<c:when test="${mode=='MODE_STAFF_HOME' }">
             	
 		            <div class="container-fluid">
 		       
@@ -71,6 +71,58 @@
 		                <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
 		                <p>Staff <code>#page-content-wrapper</code>.</p>
 		        		       
+		               
+		                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+		            </div>
+	         	</c:when>
+	         	
+	         	<c:when test="${mode=='MODE_STAFF_LIST_WASH' }">
+            	
+		            <div class="container-fluid">
+		       
+		                <h1>List of Washes</h1>
+		         
+		         <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Student Id</th>
+      <th scope="col">Scheduled Date</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Status</th>
+	  <th scope="col">Change Status</th>
+    </tr>
+  </thead>
+  <tbody>
+   	         <c:forEach var="wash" items="${washes}">
+    <tr>
+     
+      <th scope="row">${wash.washid}</th>
+      <td>${wash.studentId}</td>
+      <td>${wash.scheduledDate}</td>
+      <td>${wash.quanitity}</td>
+      <td>${wash.status}</td>
+      <td>
+      	<form method="POST" action="/change-status">
+      		<input type="hidden" name="washId" value="${wash.washid}" />
+      		<input type="hidden" name="studentId" value="${wash.studentId}" />
+	      	<select name="status">
+	  			<option value="ongoing">Ongoing</option>
+	  			<option value="completed">Completed</option>
+	  		</select>
+	    	
+	    	<button class="btn btn-outline-secondary" type="submit">Change</button>
+      	</form>
+      </td>
+      
+    
+    </tr>
+    </c:forEach>	       
+  </tbody>
+</table>
+		       
+		        
+		        
 		               
 		                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
 		            </div>

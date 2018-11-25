@@ -1,10 +1,12 @@
 package com.laundrovalley.rest.service;
 
-import java.sql.Date;
+
+
+import com.laundrovalley.rest.model.Notification;
 
 
 public interface EmailService {
 
-	public void SendEmail(String email,Date expiry);
+	public void sendEmail(Notification notification);
 	
 }

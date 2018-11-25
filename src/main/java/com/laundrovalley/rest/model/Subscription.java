@@ -47,6 +47,16 @@ public class Subscription {
 
 
 
+	@Override
+	public String toString() {
+		return "Subscription [id=" + id + ", amount=" + amount + ", expiry=" + expiry + ", studentId=" + studentId
+				+ ", planId=" + planId + ", washes=" + washes + ", status=" + status + "]";
+	}
+
+
+
+
+
 	public Subscription(int id, @NotNull int amount, @NotNull Date expiry, @NotNull String studentId,
 			@NotNull int planId, @NotNull int washes, @NotNull boolean status) {
 		super();
