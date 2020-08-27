@@ -149,9 +149,8 @@
             	
 		            <div class="container-fluid">
 		       
-		                <h1>Simple Sidebar</h1>
-		                <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-		                <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
+		                <h1>Laundro-Valley Home</h1>
+		                
 		        		       
 		                ${stud.id }
 		                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
@@ -164,9 +163,7 @@
 		            <div class="container-fluid">
 		       
 		                <h1>We have Saved your Responses</h1>
-		                <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-		                <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-		        		       
+		                
 		                ${stud.id }
 		                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
 		            </div>
@@ -287,8 +284,8 @@
 	                        </div>
 	                        <ul class="list-group text-center">
 	                            <li class="list-group-item"><i class="fa fa-check"></i> ${plan.type}</li>
-	                            <li class="list-group-item"><i class="fa fa-check"></i> ${plan.type}</li>
-	                            <li class="list-group-item"><i class="fa fa-check"></i> ${plan.type}</li>
+	                            <li class="list-group-item"><i class="fa fa-check"></i> ${plan.description}</li>
+	                            <li class="list-group-item"><i class="fa fa-check"></i> ${plan.description}</li>
 	                        	
 	                        </ul>
 	                        
@@ -300,10 +297,8 @@
                 <div class="col-md-4 text-center">
                 
                 <div class="container-fluid">
-		                <h1>Simple Sidebar</h1>
-		                <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-		                <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-		               
+		                <h1>Plan Description</h1>
+		                
 		         <!--  <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>-->
 
 		      
