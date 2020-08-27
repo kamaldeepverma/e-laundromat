@@ -25,8 +25,7 @@ Intended Audience
 • Laundry Service Vendor  
 • Students  
 
-Product Functions  
-Functionalities:
+Product Functions    
 • Student/staff Registration  
 • User Authentication  
 • Get Subscription plans  
