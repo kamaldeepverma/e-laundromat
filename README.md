@@ -1,7 +1,5 @@
 # e-laundromat
-• Fully automated e-Laundry system  
-• Automated email notifications, scheduling of tasks, plan suggestions via analyzing previous data using classification tree algorithm  
-• Implemented Design Patterns including Observer, Factory, Singleton and Pure Fabrication  
+Fully automated e-Laundry system automated email notifications, scheduling of tasks, plan suggestions via analyzing previous data using classification tree algorithm.Implemented Design Patterns including Observer, Factory, Singleton and Pure Fabrication  
 
 Introduction  
 In large college campuses like BITS Pilani ,there is no central laundry management. There are local
@@ -12,7 +10,7 @@ LaundroValley is a central laundry management system specially designed for stud
 service providers. It is a central platform where the laundry service provider meets the college
 students.
 
-1.1 Scope  
+Scope  
 This software will be a Laundry Management System for a Vendor of Laundry Services. This
 software will be designed to maximize the Vendor's productivity by providing tools to assist in
 automating various processes which would otherwise have to be performed manually. By
@@ -23,11 +21,11 @@ contains a relational database containing a list of Customers (students in our c
 and Subscription Plans.
 This System also provides a way to provide feedback so that the vendor can improve its services.
 
-1.2 Intended Audience  
+Intended Audience  
 • Laundry Service Vendor  
 • Students  
 
-1.4 Product Functions  
+Product Functions  
 Functionalities:
 • Student/staff Registration  
 • User Authentication  
@@ -39,7 +37,7 @@ Functionalities:
 • Manage User  
 • Complaint Registration  
 
-1.5 Technologies Used  
+Technologies Used  
 Following are the technologies/frameworks that we have used in this project: -
 • Java  
 • JavaScript/jQuery  
