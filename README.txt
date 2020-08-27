@@ -3,7 +3,7 @@
 • Automated email notifications, scheduling of tasks, plan suggestions via analyzing previous data using classification tree algorithm
 • Implemented Design Patterns including Observer, Factory, Singleton and Pure Fabrication
 
-1. Introduction
+#Introduction
 In large college campuses like BITS Pilani ,there is no central laundry management. There are local
 laundry facilities but getting information about the pickup and delivery of washed clothes requires
 the individual to call the laundry services, also the other information like - when will the laundry
