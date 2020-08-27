@@ -24,34 +24,20 @@ and Subscription Plans.
 This System also provides a way to provide feedback so that the vendor can improve its services.
 
 1.2 Intended Audience  
-• Laundry Service Vendor
-• Students
-
-1.3 Product Flow   
-• The Student will login via login page.
-• After Logging in, if the student hasn’t subscribed a plan then he/she can subscribe a plan.
-• After Subscribing a plan, the student can schedule a wash by clicking on the schedule wash
-button.
-• On the Schedule wash page, Student needs to enter the details about number of clothes, Date
-etc.
-• Once the wash is scheduled, a staff will receive a notification about this newly scheduled
-wash.
-• Alternatively, the student can check the status of the wash, for this student needs to enter the
-wash id.
-• After the wash is completed, student can provide a feedback or even write a complaint for
-the service.
+• Laundry Service Vendor  
+• Students  
 
 1.4 Product Functions  
 Functionalities:
-• Student/staff Registration
-• User Authentication
-• Get Subscription plans
-• Schedule Wash
-• Enquire Wash Status
-• Plan Expiry notification
-• Feedback Provision
-• Manage User
-• Complaint Registration
+• Student/staff Registration  
+• User Authentication  
+• Get Subscription plans  
+• Schedule Wash  
+• Enquire Wash Status  
+• Plan Expiry notification  
+• Feedback Provision  
+• Manage User  
+• Complaint Registration  
 
 1.5 Technologies Used  
 Following are the technologies/frameworks that we have used in this project: -
