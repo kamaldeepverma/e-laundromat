@@ -11,7 +11,7 @@ service providers. It is a central platform where the laundry service provider m
 students.
 
 Scope  
-This software will be a Laundry Management System for a Vendor of Laundry Services. This
+This software will be an e-Laundry System for a Vendor of Laundry Services. This
 software will be designed to maximize the Vendor's productivity by providing tools to assist in
 automating various processes which would otherwise have to be performed manually. By
 maximizing the vendor’s work efficiency and production the system will meet the vendor’s needs
