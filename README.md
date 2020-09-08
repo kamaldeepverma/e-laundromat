@@ -37,7 +37,7 @@ Product Functions
 • Complaint Registration  
 
 Technologies Used  
-Following are the technologies/frameworks that we have used in this project: -
+Following are the technologies/frameworks that we have used in this project:  
 • Java  
 • JavaScript/jQuery  
 • HTML5/CSS  
