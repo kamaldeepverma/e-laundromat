@@ -23,7 +23,7 @@ and Subscription Plans.
 This System also provides a way to provide feedback so that the vendor can improve its services.
 
 Intended Audience  
-• Laundry Service Vendor  
+• Laundry Service Vendors  
 • Students  
 
 Product Functions    
