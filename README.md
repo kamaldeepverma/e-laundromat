@@ -3,7 +3,7 @@ Fully automated e-Laundry system with automated email notifications, scheduling 
 
 
 Introduction  
-In large college campuses like BITS Pilani ,there is no central laundry management. There are local
+In some large college campuses like BITS Pilani ,there is no central laundry management. There are local
 laundry facilities but getting information about the pickup and delivery of washed clothes requires
 the individual to call the laundry services, also the other information like - when will the laundry
 service man visit the hostel for picking up soiled clothes etc.
