@@ -13,7 +13,7 @@ students.
 
 Scope  
 This software will be an e-Laundry System for the Vendor of Laundry Services. This
-software will be designed to maximize the Vendor's productivity by providing tools to assist in
+software will be designed to maximize the Vendor's Productivity by providing tools to assist in
 automating various processes which would otherwise have to be performed manually. By
 maximizing the vendor’s work efficiency and production the system will meet the vendor’s needs
 while remaining easy to understand and use.
