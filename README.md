@@ -1,6 +1,7 @@
 # e-laundromat
 Fully automated e-Laundry system with automated email notifications, scheduling of tasks, plan suggestions via analyzing previous data using classification tree algorithm.Implemented Design Patterns including Observer, Factory, Singleton and Pure Fabrication  
 
+
 Introduction  
 In large college campuses like BITS Pilani ,there is no central laundry management. There are local
 laundry facilities but getting information about the pickup and delivery of washed clothes requires
